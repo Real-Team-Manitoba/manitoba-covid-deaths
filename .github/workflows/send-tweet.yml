@@ -25,7 +25,7 @@ jobs:
         with:
           name: deaths
       - name: Construct tweet
-        run: echo "TWEET_TEXT=$(jq -r .deaths deaths.json)x$(date +'%s')" >> $GITHUB_ENV
+        run: echo "TWEET_TEXT='As of $(jq -r .dateString deaths.json), $(jq -r .deaths deaths.json) are dead in Manitoba.'" >> $GITHUB_ENV
       - uses: ethomson/send-tweet-action@v1
         with:
           status: ${{ env.TWEET_TEXT }}

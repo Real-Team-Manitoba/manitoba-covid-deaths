@@ -18,5 +18,6 @@ const date = luxon.DateTime.fromFormat(dateString, 'LLLL dd, yyyy');
 
 fs.writeFileSync('deaths.json', JSON.stringify({
     date: date.toISODate(),
+    dateString,
     deaths,
 }, null, 2));
