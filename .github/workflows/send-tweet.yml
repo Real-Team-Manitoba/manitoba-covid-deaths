@@ -4,9 +4,11 @@ jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
+      - name: Construct tweet
+        run: echo "TWEET_TEXT=testyes" >> $GITHUB_ENV
       - uses: ethomson/send-tweet-action@v1
         with:
-          status: "Hi, this is a test!"
+          status: ${{ env.TWEET_TEXT }}
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
