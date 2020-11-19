@@ -8,7 +8,8 @@
   "license": "MIT",
   "type": "module",
   "volta": {
-    "node": "14.9.0"
+    "node": "14.9.0",
+    "yarn": "1.22.5"
   },
   "dependencies": {
     "luxon": "^1.25.0",
