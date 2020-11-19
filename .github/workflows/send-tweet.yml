@@ -2,7 +2,7 @@ name: Send a Tweet
 on:
   push:
   schedule:
-    - cron: '* 13 * * *'
+    - cron: '0 19 * * *' # FIXME 13h CST, how to deal with DST… eventually :/
 jobs:
   store-deaths:
     runs-on: ubuntu-latest
