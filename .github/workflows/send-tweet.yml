@@ -1,5 +1,8 @@
 name: Send a Tweet
-on: [push]
+on:
+  push:
+  schedule:
+    - cron: '* 13 * * *'
 jobs:
   store-deaths:
     runs-on: ubuntu-latest
