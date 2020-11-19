@@ -1,11 +1,28 @@
 name: Send a Tweet
 on: [push]
 jobs:
-  tweet:
+  store-deaths:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+      - uses: volta-cli/action@v1
+      - run: yarn install
+      - run: node index.js
+      - name: Store deaths data
+        uses: actions/upload-artifact@v2
+        with:
+          name: deaths
+          path: deaths.json
+  tweet:
+    needs: store-deaths
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: deaths
       - name: Construct tweet
-        run: echo "TWEET_TEXT=testyes" >> $GITHUB_ENV
+        run: echo "TWEET_TEXT=$(cat deaths.json)" >> $GITHUB_ENV
       - uses: ethomson/send-tweet-action@v1
         with:
           status: ${{ env.TWEET_TEXT }}

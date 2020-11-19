@@ -1,0 +1,17 @@
+{
+  "name": "manitoba-covid-deaths",
+  "version": "0.0.1",
+  "description": "Parse the Manitoba government’s COVID-19 updates page for the latest death count",
+  "main": "index.js",
+  "repository": "https://github.com/real-team-manitoba/manitoba-covid-deaths",
+  "author": "Buck Doyle <b@chromatin.ca>",
+  "license": "MIT",
+  "type": "module",
+  "volta": {
+    "node": "14.9.0"
+  },
+  "dependencies": {
+    "luxon": "^1.25.0",
+    "node-fetch": "^2.6.1"
+  }
+}
