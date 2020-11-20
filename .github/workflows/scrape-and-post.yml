@@ -52,3 +52,17 @@ jobs:
         with:
           name: license-plate
           path: "generated-*.jpg"
+  upload-license-to-drive:
+    needs: generate-license-plate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch license plate
+        uses: actions/download-artifact@v2
+        with:
+          name: license-plate
+      - name: rclone
+        uses: wei/rclone@v1
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        with:
+          args: "copy generated-*.jpg BriansRetire:"
