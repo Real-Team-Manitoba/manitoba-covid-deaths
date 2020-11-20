@@ -20,4 +20,5 @@ fs.writeFileSync('deaths.json', JSON.stringify({
     date: date.toISODate(),
     dateString,
     deaths,
+    stickerDate: date.toFormat('LLL d, yyyy').toUpperCase(),
 }, null, 2));
