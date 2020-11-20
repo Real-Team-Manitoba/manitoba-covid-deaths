@@ -17,7 +17,7 @@ jobs:
           name: deaths
           path: deaths.json
   tweet:
-    # if: ${{ github.event_name == 'schedule' }} FIXME restore after testing templates
+    if: ${{ github.event_name == 'schedule' }}
     needs: store-deaths
     runs-on: ubuntu-latest
     steps:
