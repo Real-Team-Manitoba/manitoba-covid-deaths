@@ -36,7 +36,7 @@ jobs:
           access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
   generate-license-plate:
     needs: store-deaths
-    runs-on: macos-latest
+    runs-on: macos-11.0
     steps:
       - name: Install ImageMagick
         run: brew install imagemagick
