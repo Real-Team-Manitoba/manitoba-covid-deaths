@@ -36,6 +36,14 @@ jobs:
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+      - uses: EndBug/add-and-commit@v5
+        with:
+          add: 'tweet-templates.txt'
+          author_name: Github Action as Buck
+          author_email: b@chromatin.ca
+          message: 'Update tweet queue'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
   generate-license-plate:
     needs: store-deaths
     runs-on: macos-11.0
