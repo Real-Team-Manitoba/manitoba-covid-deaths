@@ -1,5 +1,6 @@
 name: Scrape today’s death count, tweet about it, and generate a license plate
 on:
+  push:
   schedule:
     - cron: '0 19 * * *' # FIXME 13h CST, how to deal with DST… eventually :/
 jobs:
@@ -16,6 +17,7 @@ jobs:
           name: deaths
           path: deaths.json
   tweet:
+    if: github.event_name == 'schedule' || contains(github.event.head_commit.message, 'FORCETWEET')
     needs: store-deaths
     runs-on: ubuntu-latest
     steps:
