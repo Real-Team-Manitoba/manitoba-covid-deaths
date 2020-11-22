@@ -5,6 +5,6 @@ const [template, ...otherTemplates] = fs.readFileSync('tweet-templates.txt').toS
 
 fs.writeFileSync('tweet-templates.txt', [...otherTemplates, template].join('\n\n') + '\n');
 
-const tweet = template.replace('DEATHS', deathsJson.deaths).replace('DATE', deathsJson.deathString);
+const tweet = template.replace('DEATHS', deathsJson.deaths).replace('DATE', deathsJson.dateString);
 
 console.log(tweet);
