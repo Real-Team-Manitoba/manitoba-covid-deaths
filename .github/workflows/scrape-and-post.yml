@@ -19,7 +19,7 @@ jobs:
     needs: store-deaths
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
       - name: Fetch deaths data
         uses: actions/download-artifact@v2
