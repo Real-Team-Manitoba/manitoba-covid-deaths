@@ -2,7 +2,7 @@ name: Scrape today’s death count, tweet about it, and generate a license plate
 on:
   push:
   schedule:
-    - cron: '45 23 * * *' # FIXME 13h CST, how to deal with DST… eventually :/
+    - cron: '15 19 * * *' # FIXME 13h CST, how to deal with DST… eventually :/
 jobs:
   store-deaths:
     runs-on: ubuntu-latest
