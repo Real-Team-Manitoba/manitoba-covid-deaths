@@ -12,7 +12,7 @@ if (!updatesResponse.ok) {
 const updatesText = await updatesResponse.text();
 
 const dateString = updatesText.match(/\<em\>Last updated: (.*)\<\/em\>/)[1];
-const deaths = updatesText.match(/deaths\s+in\s+people\s+with\s+COVID-19\s+is\s+(\d+)/)[1];
+const deaths = updatesText.match(/deaths\s+in\s+people\s+with\s+COVID-19\s+is\s+((\d{0,3},)?(\d{3},)?\d{0,3})/)[1].replace(',', '');
 
 const date = luxon.DateTime.fromFormat(dateString, 'LLLL dd, yyyy');
 
