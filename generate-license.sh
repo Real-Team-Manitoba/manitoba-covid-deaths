@@ -1,7 +1,7 @@
 convert \
     blank-license.jpg \
     -font sticker.ttf \
-    -pointsize 160 \
+    -pointsize 130 \
     -draw "rotate 8 text 3345,1093 '$(jq -r .deaths deaths.json)'" \
     -pointsize 35 \
     -fill white \
